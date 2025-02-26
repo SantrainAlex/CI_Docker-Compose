@@ -1,0 +1,68 @@
+# Dependencies
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build files
+/build
+/dist
+/.next
+/client/build/
+/client/dist/
+
+# React specific
+.cache/
+.parcel-cache/
+.docz/
+.gatsby/
+
+# Testing
+/coverage
+/client/coverage/
+/server/coverage/
+
+# Production
+/client/build
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# React debugging
+.chrome/
+
+# PWA files
+**/public/precache-manifest.*
+**/public/service-worker.js
+**/public/workbox-*.js
+**/public/worker-*.js
+
+# Source maps
+*.map

@@ -1,6 +1,6 @@
 services:
   db:
-    image: mysql:8.0
+    image: mysql:8.0.35
     container_name: catalogue-db
     restart: unless-stopped
     environment:
@@ -18,11 +18,15 @@ services:
     volumes:
       - ./server/init.sql:/docker-entrypoint-initdb.d/init.sql
       - db_data:/var/lib/mysql
+    labels:
+      com.docker.compose.project: "catalogue-app"
+      com.docker.compose.service: "database"
+      org.opencontainers.image.source: "https://hub.docker.com/_/mysql"
+      org.opencontainers.image.description: "Official MySQL database for Catalogue App"
+      org.opencontainers.image.version: "8.0.35"
 
   server:
-    build:
-      context: ./server
-      dockerfile: Dockerfile
+    image: ghcr.io/santrainalex/ci_docker-compose/server:latest
     container_name: catalogue-server
     restart: unless-stopped
     environment:
@@ -41,9 +45,7 @@ services:
       - /usr/src/app/node_modules
 
   client:
-    build:
-      context: ./client
-      dockerfile: Dockerfile
+    image: ghcr.io/santrainalex/ci_docker-compose/client:latest
     container_name: catalogue-client
     restart: unless-stopped
     ports:
